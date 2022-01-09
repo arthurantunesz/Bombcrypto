@@ -1,0 +1,537 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|||0|Window,2,Fast,0,1,Input,-1,-1,1|1|Principal
+Context=None|
+Groups=Verificação:1,Atualizar página:10,Abrir tela dos heroes:43,Seleção:59,Fechar tela dos heroes e voltar para o jogo:108
+1|[Pause]|Random|1|1500|Sleep|3000||||1|
+2|[CommentBlock]|Se já for 1h da manhã, reabastecer carro (Crypto cars)|0|1|CommentBlock|||||2|
+3|Compare Variables|verificador != 1|1|0|If_Statement|||||5|
+4|OCR|1257, 729, 1303, 749, hora|1|0|ImageToText|eng|Screen|||7|
+5|Compare Variables|hora contains 01:|1|0|If_Statement|||||8|
+6|[Assign Variable]|verificador := 1|1|0|Variable|Expression||||10|
+7|[Goto]|ReabastecerCarro|1|0|Goto|||||11|
+8|[End If]|EndIf|1|0|If_Statement|||||12|
+9|[End If]|EndIf|1|0|If_Statement|||||13|
+10|[CommentBlock]|Garantir que estamos na aba do jogo|0|1|CommentBlock|||||14|
+11|Left Click, Continue, FoundX, FoundY, 1|23, 8, 147, 43, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\aba bomb crypto.png|200|0|ImageSearch|UntilFound|Window|||17|
+12|[CommentBlock]|Atualizar página|0|1|CommentBlock|||||26|
+13|Left Click, Continue, FoundX, FoundY, 1|79, 41, 112, 77, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Refresh.png|200|0|ImageSearch|UntilFound|Window|||29|
+14|Move|102, 143, 0|1|10|Click|Random|10|||38|
+15|[CommentBlock]|Conectar wallet|0|1|CommentBlock|||||40|
+16|[Pause]|Random|1|5000|Sleep|6000||||43|
+17|Continue, Continue, FoundX, FoundY, 0|590, 586, 780, 676, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\CONNECT WALLET.png|1000|0|ImageSearch|UntilFound|Window|Conectar wallet||44|
+18|If Image/Pixel Found||1|0|If_Statement|||||50|
+19|Left Move & Click|680, 631 Left, 1|1|10|Click|Random|30|||52|
+20|[Pause]|Random|1|2000|Sleep|2500||||54|
+21|[CommentBlock]|Aguardar janela do meta mask abrir|0|1|CommentBlock|||||55|
+22|WinWaitActive||1|333|WinWaitActive||ahk_class Chrome_WidgetWin_1|Aguardar janela do meta mask abrir||58|
+23|[CommentBlock]|Logar no meta mask|0|1|CommentBlock|||||60|
+24|Continue, Continue, SignX, SignY, 0|227, 544, 289, 578, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Sign Meta Mask.png|1000|0|ImageSearch|UntilFound|Window|||63|
+25|If Image/Pixel Found||1|0|If_Statement|||||69|
+26|[Pause]|Random|1|1500|Sleep|2000||||71|
+27|Left Move & Click|%SignX%, %SignY% Left, 1|1|10|Click|Random|10|||72|
+28|[Else]|Else|1|0|If_Statement|||||74|
+29|[Goto]|Principal|1|0|Goto|||||77|
+30|[End If]|EndIf|1|0|If_Statement|||||78|
+31|[CommentBlock]|Entrar no treasure hunt (tela do jogo)|0|1|CommentBlock|||||79|
+32|Continue, Continue, FoundX, FoundY, 1|580, 312, 808, 611, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Treasure Hunt.png|1000|0|ImageSearch|UntilFound|Window|Entrar no treasure hunt (tela do jogo)||82|
+33|If Image/Pixel Found||1|0|If_Statement|||||89|
+34|[Pause]|Random|1|2000|Sleep|3000||||91|
+35|Left Move & Click|709, 407 Left, 1|1|10|Click|Random|30|||92|
+36|[Pause]|Random|1|1000|Sleep|1500||||94|
+37|[Else]|Else|1|0|If_Statement|||||95|
+38|[Goto]|Principal|1|0|Goto|||||98|
+39|[End If]|EndIf|1|0|If_Statement|||||99|
+40|[Else]|Else|1|0|If_Statement|||||100|
+41|[Goto]|Principal|1|0|Goto|||||103|
+42|[End If]|EndIf|1|0|If_Statement|||||104|
+43|[CommentBlock]|Na tela do jogo, procurar botão voltar verde|0|1|CommentBlock|||||105|
+44|Continue, Continue, FoundX, FoundY, 0|211, 153, 284, 216, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Voltar verde.png|200|0|ImageSearch|UntilFound|Window|||108|
+45|If Image/Pixel Found||1|0|If_Statement|||||114|
+46|[Pause]|Random|1|2000|Sleep|3500||||116|
+47|Left Move & Click|249, 183 Left, 1|1|10|Click|Random|10|||117|
+48|[Pause]|Random|1|1500|Sleep|2000||||119|
+49|[CommentBlock]|Abrir os heroes|0|1|CommentBlock|||||120|
+50|Continue, Continue, FoundX, FoundY, 0|1065, 653, 1127, 704, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Heroes.png|300|0|ImageSearch|UntilFound|Window|||123|
+51|If Image/Pixel Found||1|0|If_Statement|||||129|
+52|Left Move & Click|1095, 681 Left, 1|1|10|Click|Random|10|||131|
+53|[Pause]|Random|1|2000|Sleep|3000||||133|
+54|[End If]|EndIf|1|0|If_Statement|||||134|
+55|[CommentBlock]|Mandar todos descansar|0|1|CommentBlock|||||135|
+56|[Pause]|Random|1|2000|Sleep|3000||||138|
+57|Left Move & Click|662, 313 Left, 1|1|10|Click|Random|5|||139|
+58|[Pause]|Random|1|500|Sleep|1500||||141|
+59|[Assign Variable]|workers := 0|1|0|Variable|Expression||||142|
+60|[CommentBlock]|Dropar os 70%|0|1|CommentBlock|||||143|
+61|[LoopStart]|LoopStart|2|0|Loop|||||146|
+62|[Assign Variable]|ye := 325|1|0|Variable|Expression||||148|
+63|[Assign Variable]|yd := 865|1|0|Variable|Expression||||149|
+64|[LoopStart]|LoopStart|5|0|Loop|||||150|
+65|Continue, Continue, FoundX, FoundY|530, %ye%, 540, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||152|
+66|If Image/Pixel Found||1|0|If_Statement|||||157|
+67|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||159|
+68|[Add Variable]|workers += 1|1|0|Variable|Expression||||161|
+69|[Pause]|Random|1|1000|Sleep|1500||||162|
+70|[End If]|EndIf|1|0|If_Statement|||||163|
+71|[Add Variable]|ye += 108|1|0|Variable|Expression||||164|
+72|[Add Variable]|yd += 108|1|0|Variable|Expression||||165|
+73|[LoopEnd]|LoopEnd|1|0|Loop|||||166|
+74|[Pause]|Random|1|500|Sleep|1000||||167|
+75|Move|421, 500, 0|1|10|Click|Random|30|||168|
+76|[Pause]|Random|1|500|Sleep|1000||||170|
+77|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||171|
+78|[LoopEnd]|LoopEnd|1|0|Loop|||||176|
+79|[CommentBlock]|Se tiver menos de 3 trabalhando, dropar os 50%|0|1|CommentBlock|||||177|
+80|Compare Variables|workers < 3|1|0|If_Statement|||||180|
+81|Mouse Wheel Up|WheelUp, 1|30|10|Click|||||182|
+82|[LoopStart]|LoopStart|2|0|Loop|||||187|
+83|[Pause]|Random|1|1500|Sleep|2000||||189|
+84|[Assign Variable]|ye := 325|1|0|Variable|Expression||||190|
+85|[Assign Variable]|yd := 865|1|0|Variable|Expression||||191|
+86|[LoopStart]|LoopStart|5|0|Loop|||||192|
+87|Continue, Continue, FoundX, FoundY|510, %ye%, 520, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||194|
+88|If Image/Pixel Found||1|0|If_Statement|||||199|
+89|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||201|
+90|[Add Variable]|workers += 1|1|0|Variable|Expression||||203|
+91|[Pause]|Random|1|1000|Sleep|1500||||204|
+92|[End If]|EndIf|1|0|If_Statement|||||205|
+93|[Add Variable]|ye += 108|1|0|Variable|Expression||||206|
+94|[Add Variable]|yd += 108|1|0|Variable|Expression||||207|
+95|[LoopEnd]|LoopEnd|1|0|Loop|||||208|
+96|[Pause]|Random|1|500|Sleep|1000||||209|
+97|Move|447, 396, 0|1|10|Click|Random|10|||210|
+98|[Pause]|Random|1|500|Sleep|1000||||212|
+99|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||213|
+100|[LoopEnd]|LoopEnd|1|0|Loop|||||218|
+101|[End If]|EndIf|1|0|If_Statement|||||219|
+102|[CommentBlock]|Se tiver menos de 3 trabalhando ainda, dropar dois quaisquer|0|1|CommentBlock|||||220|
+103|Compare Variables|workers < 3|1|0|If_Statement|||||223|
+104|Left Move & Click|601, 366 Left, 1|1|10|Click|Random|10|||225|
+105|[Pause]|Random|1|1000|Sleep|1500||||227|
+106|Left Move & Click|602, 441 Left, 1|1|10|Click|Random|10|||228|
+107|[End If]|EndIf|1|0|If_Statement|||||230|
+108|[Pause]|Random|1|1000|Sleep|2000||||231|
+109|[CommentBlock]|Fechar janela dos heroes|0|1|CommentBlock|||||232|
+110|Continue, Continue, FoundX, FoundY, 1|717, 238, 768, 290, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\X.png|100|0|ImageSearch|UntilFound|Window|||235|
+111|If Image/Pixel Found||1|0|If_Statement|||||242|
+112|Left Move & Click|742, 267 Left, 1|1|10|Click|Random|10|||244|
+113|[End If]|EndIf|1|0|If_Statement|||||246|
+114|[Pause]|Random|1|1500|Sleep|3000||||247|
+115|[CommentBlock]|Voltar para o treasure hunt|0|1|CommentBlock|||||248|
+116|Continue, Continue, FoundX, FoundY, 0|576, 307, 810, 611, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Treasure Hunt.png|1|0|ImageSearch|UntilFound|Window|||251|
+117|If Image/Pixel Found||1|0|If_Statement|||||257|
+118|Left Move & Click|688, 454 Left, 1|1|10|Click|Random|30|||259|
+119|[Pause]|Random|1|1000|Sleep|3000||||261|
+120|[End If]|EndIf|1|0|If_Statement|||||262|
+121|[Else]|Else|1|0|If_Statement|||||263|
+122|[Goto]|Principal|1|0|Goto|||||266|
+123|[End If]|EndIf|1|0|If_Statement|||||267|
+124|[CommentBlock]|Intervalo de 30-40 min|0|1|CommentBlock|||||268|
+125|[Pause]|Random|1|1800000|Sleep|2400000||||271|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|ReabastecerCarro
+Context=None|
+Groups=Start:1
+1|[CommentBlock]|Clicar na aba do Crypto Cars|0|1|CommentBlock|||||1|
+2|[Pause]|Random|1|500|Sleep|1000||||4|
+3|Continue, Continue, FoundX, FoundY, 1|255, 8, 401, 45, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\cryptocarsPlay.png|300|0|ImageSearch|UntilFound|Window|||5|
+4|If Image/Pixel Found||1|0|If_Statement|||||12|
+5|Left Move & Click|377, 22 Left, 1|1|10|Click|||||14|
+6|[Pause]|Random|1|2000|Sleep|3000||||16|
+7|[CommentBlock]|Atualizar página|0|1|CommentBlock|||||17|
+8|Left Click, Continue, FoundX, FoundY, 1|78, 44, 112, 76, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Refresh.png|50|0|ImageSearch||Window|||20|
+9|[Pause]|Random|1|5000|Sleep|8000||||28|
+10|[CommentBlock]|PLAY GAME|0|1|CommentBlock|||||29|
+11|Continue, Continue, FoundX, FoundY, 0|1057, 149, 1193, 190, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Screen_20220109151915.png|200|0|ImageSearch|UntilFound|Window|||32|
+12|If Image/Pixel Found||1|0|If_Statement|||||38|
+13|Left Move & Click|1121, 169 Left, 1|1|10|Click|Random|15|||40|
+14|[End If]|EndIf|1|0|If_Statement|||||42|
+15|[CommentBlock]|CARS|0|1|CommentBlock|||||43|
+16|[Pause]|Random|1|1500|Sleep|3000||||46|
+17|Continue, Continue, FoundX, FoundY, 0|369, 122, 430, 167, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Screen_20220109152049.png|200|0|ImageSearch|UntilFound|Window|||47|
+18|If Image/Pixel Found||1|0|If_Statement|||||53|
+19|Left Move & Click|398, 142 Left, 1|1|10|Click|Random|3|||55|
+20|[End If]|EndIf|1|0|If_Statement|||||57|
+21|[CommentBlock]|REFUEL|0|1|CommentBlock|||||58|
+22|Continue, Continue, FoundX, FoundY, 0|655, 648, 809, 683, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\REFUEL CAR.png|3600|1000|ImageSearch|UntilFound|Window|||61|
+23|If Image/Pixel Found||1|0|If_Statement|||||68|
+24|Left Move & Click|94, 59 Left, 1|1|10|Click|||||70|
+25|[Pause]|Random|1|5000|Sleep|8000||||72|
+26|Continue, Continue, FoundX, FoundY, 0|655, 648, 809, 683, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\REFUEL CAR.png|300|0|ImageSearch|UntilFound|Window|||73|
+27|If Image/Pixel Found||1|0|If_Statement|||||79|
+28|Left Move & Click|%FoundX%, %FoundY% Left, 1|1|10|Click|Random|5|||81|
+29|[End If]|EndIf|1|0|If_Statement|||||83|
+30|[Pause]|Random|1|2000|Sleep|3000||||84|
+31|[CommentBlock]|CONFIRMAÇÃO DE REFUEL|0|1|CommentBlock|||||85|
+32|Continue, Continue, FoundX, FoundY, 0|470, 80, 913, 203, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\REFUEL CONFIRMATION.png|200|0|ImageSearch|UntilFound|Window|||88|
+33|If Image/Pixel Found||1|0|If_Statement|||||94|
+34|Left Move & Click|787, 172 Left, 1|1|10|Click|||||96|
+35|[End If]|EndIf|1|0|If_Statement|||||98|
+36|[End If]|EndIf|1|0|If_Statement|||||99|
+37|[Pause]|Random|1|8000|Sleep|10000||||100|
+38|[CommentBlock]|Voltar para o bomb (primeira aba)|0|1|CommentBlock|||||101|
+39|Left Move & Click|108, 18 Left, 1|1|10|Click|||||104|
+40|[Goto]|Principal|1|0|Goto|||||106|
+41|[Else]|Else|1|0|If_Statement|||||107|
+42|Left Move & Click|108, 18 Left, 1|1|10|Click|||||110|
+43|[Pause]|Random|1|1500|Sleep|2000||||112|
+44|[Goto]|Principal|1|0|Goto|||||113|
+45|[End If]|EndIf|1|0|If_Statement|||||114|
+
+[PMC Code v5.4.1]|F5||1|Window,2,Fast,0,1,Input,-1,-1,1|1|AtualizarPag
+Context=None|
+Groups=Start:1
+1|[CommentBlock]|Garantir que estamos na aba do jogo|0|1|CommentBlock|||||1|
+2|Left Click, Continue, FoundX, FoundY, 1|23, 8, 147, 43, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\aba bomb crypto.png|100|0|ImageSearch|UntilFound|Window|||4|
+3|[CommentBlock]|Atualizar página|0|1|CommentBlock|||||13|
+4|Left Click, Continue, FoundX, FoundY, 1|79, 41, 112, 77, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Refresh.png|1|0|ImageSearch|UntilFound|Window|||16|
+5|Move|102, 143, 0|1|10|Click|Random|10|||25|
+6|[CommentBlock]|Conectar wallet|0|1|CommentBlock|||||27|
+7|[Pause]|Random|1|5000|Sleep|6000||||30|
+8|Continue, Continue, FoundX, FoundY, 0|590, 586, 780, 676, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\CONNECT WALLET.png|500|0|ImageSearch|UntilFound|Window|Conectar wallet||31|
+9|If Image/Pixel Found||1|0|If_Statement|||||37|
+10|[Pause]|Random|1|1000|Sleep|2000||||39|
+11|Left Move & Click|680, 631 Left, 1|1|10|Click|Random|30|||40|
+12|[Pause]|Random|1|2000|Sleep|2500||||42|
+13|[CommentBlock]|Aguardar janela do meta mask abrir|0|1|CommentBlock|||||43|
+14|WinWaitActive||1|333|WinWaitActive||ahk_class Chrome_WidgetWin_1|Aguardar janela do meta mask abrir||46|
+15|[CommentBlock]|Logar no meta mask|0|1|CommentBlock|||||48|
+16|Continue, Continue, SignX, SignY, 0|227, 544, 289, 578, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Sign Meta Mask.png|500|0|ImageSearch|UntilFound|Window|||51|
+17|If Image/Pixel Found||1|0|If_Statement|||||57|
+18|[Pause]|Random|1|1500|Sleep|2000||||59|
+19|Left Move & Click|%SignX%, %SignY% Left, 1|1|10|Click|Random|10|||60|
+20|[Else]|Else|1|0|If_Statement|||||62|
+21|[Goto]|Principal|1|0|Goto|||||65|
+22|[End If]|EndIf|1|0|If_Statement|||||66|
+23|[CommentBlock]|Entrar no treasure hunt (tela do jogo)|0|1|CommentBlock|||||67|
+24|Continue, Continue, FoundX, FoundY, 1|580, 312, 808, 611, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Treasure Hunt.png|1000|0|ImageSearch|UntilFound|Window|Entrar no treasure hunt (tela do jogo)||70|
+25|If Image/Pixel Found||1|0|If_Statement|||||77|
+26|[Pause]|Random|1|2000|Sleep|3000||||79|
+27|Left Move & Click|709, 407 Left, 1|1|10|Click|Random|30|||80|
+28|[Else]|Else|1|0|If_Statement|||||82|
+29|[Goto]|Principal|1|0|Goto|||||85|
+30|[End If]|EndIf|1|0|If_Statement|||||86|
+31|[Else]|Else|1|0|If_Statement|||||87|
+32|[Goto]|Principal|1|0|Goto|||||90|
+33|[End If]|EndIf|1|0|If_Statement|||||91|
+
+[PMC Code v5.4.1]|||0|Window,2,Fast,0,1,Input,-1,-1,1|1|Esperar
+Context=None|
+Groups=Verificar tela:1,Se já for 2h da manhã:,reabastecer carro (Crypto Cars):34
+1|Period|AtualizarPag|1|180000|SetTimer|||||1|
+2|[Pause]|Random|1|100|Sleep|150||||2|
+3|[CommentBlock]|A cada 2 minutos, verifica a tela do jogo. São 5 loops|0|1|CommentBlock|||||3|
+4|[LoopStart]|LoopStart|5|0|Loop|||||6|
+5|[Pause]||1|200|Sleep|||Aguardar entre 20 e 50 min||8|
+6|[CommentBlock]|Verifica se o jogo deslogou (tempo sem uso)|0|1|CommentBlock|||||9|
+7|Continue, Continue, FoundX, FoundY, 0|420, 396, 948, 470, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\desconectadoTempo.png|100|0|ImageSearch||Window|||12|
+8|If Image/Pixel Found||1|0|If_Statement|||||17|
+9|[Gosub]|AtualizarPag|1|0|Gosub|||||19|
+10|[End If]|EndIf|1|0|If_Statement|||||20|
+11|[CommentBlock]|Verifica se desconectou (connection error)|0|1|CommentBlock|||||21|
+12|Continue, Continue, FoundX, FoundY, 0|430, 336, 970, 434, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\connectionError.png|50|0|ImageSearch||Window|||24|
+13|If Image/Pixel Found||1|0|If_Statement|||||29|
+14|[Goto]|AtualizarPag|1|0|Goto|||||31|
+15|[End If]|EndIf|1|0|If_Statement|||||32|
+16|[CommentBlock]|Verifica se há conexao instavel|0|1|CommentBlock|||||33|
+17|Continue, Continue, FoundX, FoundY, 0|412, 383, 956, 477, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\conexaoInstavel.png|50|0|ImageSearch||Window|||36|
+18|If Image/Pixel Found||1|0|If_Statement|||||41|
+19|[Pause]|Random|1|1500|Sleep|2000||||43|
+20|[Goto]|AtualizarPag|1|0|Goto|||||44|
+21|[End If]|EndIf|1|0|If_Statement|||||45|
+22|[CommentBlock]|Verifica se connect wallet está aparecendo, se sim, vai pra macro AtualizarPag|0|1|CommentBlock|||||46|
+23|Continue, Continue, FoundX, FoundY, 0|592, 587, 780, 677, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\CONNECT WALLET.png|100|0|ImageSearch||Window|||49|
+24|If Image/Pixel Found||1|0|If_Statement|||||54|
+25|[Pause]|Random|1|1000|Sleep|4000||||56|
+26|[Goto]|AtualizarPag|1|0|Goto|||||57|
+27|[End If]|EndIf|1|0|If_Statement|||||58|
+28|[CommentBlock]|Verifica se notificação do win zip aparece kk|0|1|CommentBlock|||||59|
+29|Continue, Continue, FoundX, FoundY, 0|824, 460, 1195, 544, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\lixo.png|50|0|ImageSearch||Window|||62|
+30|If Image/Pixel Found||1|0|If_Statement|||||67|
+31|Left Move & Click|1190, 462 Left, 1|1|10|Click|||||69|
+32|[End If]|EndIf|1|0|If_Statement|||||71|
+33|[Pause]|Random|1|1000|Sleep|2000||||72|
+34|[CommentBlock]|Se já for 2h da manhã, reabastecer carro (Crypto cars)|0|1|CommentBlock|||||73|
+35|Compare Variables|verificador != 1|1|0|If_Statement|||||76|
+36|OCR|1257, 729, 1303, 749, hora|1|0|ImageToText|eng|Screen|||78|
+37|Compare Variables|hora contains 02:|1|0|If_Statement|||||79|
+38|[Assign Variable]|verificador := 1|1|0|Variable|Expression||||81|
+39|[Goto]|ReabastecerCarro|1|0|Goto|||||82|
+40|[End If]|EndIf|1|0|If_Statement|||||83|
+41|[End If]|EndIf|1|0|If_Statement|||||84|
+42|[LoopEnd]|LoopEnd|1|0|Loop|||||85|
+43|[CommentBlock]|A cada 10-12 minutos, manda os verdes trabalharem|0|1|CommentBlock|||||86|
+44|[Goto]|Trabalhar|1|0|Goto|||||89|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Trabalhar
+Context=None|
+Groups=Abrir Heroes:1,Seleção:17,Fechar Heroes e voltar pra tela de jogo:66
+1|[CommentBlock]|Na tela do jogo, procurar botão voltar verde|0|1|CommentBlock|||||1|
+2|Continue, Continue, FoundX, FoundY, 0|211, 153, 284, 216, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Voltar verde.png|200|0|ImageSearch|UntilFound|Window|||4|
+3|If Image/Pixel Found||1|0|If_Statement|||||10|
+4|[Pause]|Random|1|2000|Sleep|3500||||12|
+5|Left Move & Click|249, 183 Left, 1|1|10|Click|Random|10|||13|
+6|[Pause]|Random|1|1500|Sleep|2000||||15|
+7|[CommentBlock]|Abrir os heroes|0|1|CommentBlock|||||16|
+8|Continue, Continue, FoundX, FoundY, 0|1065, 653, 1127, 704, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Heroes.png|100|0|ImageSearch|UntilFound|Window|||19|
+9|If Image/Pixel Found||1|0|If_Statement|||||25|
+10|Left Move & Click|1095, 681 Left, 1|1|10|Click|Random|10|||27|
+11|[Pause]|Random|1|1000|Sleep|2000||||29|
+12|[End If]|EndIf|1|0|If_Statement|||||30|
+13|[CommentBlock]|Mandar todos descansar|0|1|CommentBlock|||||31|
+14|[Pause]|Random|1|500|Sleep|1000||||34|
+15|Left Move & Click|662, 313 Left, 1|1|10|Click|Random|5|||35|
+16|[Pause]|Random|1|500|Sleep|1500||||37|
+17|[Assign Variable]|workers := 0|1|0|Variable|Expression||||38|
+18|[CommentBlock]|Dropar os 70%|0|1|CommentBlock|||||39|
+19|[LoopStart]|LoopStart|2|0|Loop|||||42|
+20|[Assign Variable]|ye := 325|1|0|Variable|Expression||||44|
+21|[Assign Variable]|yd := 865|1|0|Variable|Expression||||45|
+22|[LoopStart]|LoopStart|5|0|Loop|||||46|
+23|Continue, Continue, FoundX, FoundY|530, %ye%, 540, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||48|
+24|If Image/Pixel Found||1|0|If_Statement|||||53|
+25|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||55|
+26|[Add Variable]|workers += 1|1|0|Variable|Expression||||57|
+27|[Pause]|Random|1|1000|Sleep|1500||||58|
+28|[End If]|EndIf|1|0|If_Statement|||||59|
+29|[Add Variable]|ye += 108|1|0|Variable|Expression||||60|
+30|[Add Variable]|yd += 108|1|0|Variable|Expression||||61|
+31|[LoopEnd]|LoopEnd|1|0|Loop|||||62|
+32|[Pause]|Random|1|500|Sleep|1000||||63|
+33|Move|421, 500, 0|1|10|Click|Random|30|||64|
+34|[Pause]|Random|1|500|Sleep|1000||||66|
+35|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||67|
+36|[LoopEnd]|LoopEnd|1|0|Loop|||||72|
+37|[CommentBlock]|Se tiver menos de 3 trabalhando, dropar os 50%|0|1|CommentBlock|||||73|
+38|Compare Variables|workers < 3|1|0|If_Statement|||||76|
+39|Mouse Wheel Up|WheelUp, 1|30|10|Click|||||78|
+40|[LoopStart]|LoopStart|2|0|Loop|||||83|
+41|[Pause]|Random|1|1500|Sleep|2000||||85|
+42|[Assign Variable]|ye := 325|1|0|Variable|Expression||||86|
+43|[Assign Variable]|yd := 865|1|0|Variable|Expression||||87|
+44|[LoopStart]|LoopStart|5|0|Loop|||||88|
+45|Continue, Continue, FoundX, FoundY|510, %ye%, 520, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||90|
+46|If Image/Pixel Found||1|0|If_Statement|||||95|
+47|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||97|
+48|[Add Variable]|workers += 1|1|0|Variable|Expression||||99|
+49|[Pause]|Random|1|1000|Sleep|1500||||100|
+50|[End If]|EndIf|1|0|If_Statement|||||101|
+51|[Add Variable]|ye += 108|1|0|Variable|Expression||||102|
+52|[Add Variable]|yd += 108|1|0|Variable|Expression||||103|
+53|[LoopEnd]|LoopEnd|1|0|Loop|||||104|
+54|[Pause]|Random|1|500|Sleep|1000||||105|
+55|Move|447, 396, 0|1|10|Click|Random|10|||106|
+56|[Pause]|Random|1|500|Sleep|1000||||108|
+57|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||109|
+58|[LoopEnd]|LoopEnd|1|0|Loop|||||114|
+59|[End If]|EndIf|1|0|If_Statement|||||115|
+60|[CommentBlock]|Se tiver menos de 3 trabalhando ainda, dropar dois quaisquer|0|1|CommentBlock|||||116|
+61|Compare Variables|workers < 3|1|0|If_Statement|||||119|
+62|Left Move & Click|601, 366 Left, 1|1|10|Click|Random|10|||121|
+63|[Pause]|Random|1|1000|Sleep|1500||||123|
+64|Left Move & Click|602, 441 Left, 1|1|10|Click|Random|10|||124|
+65|[End If]|EndIf|1|0|If_Statement|||||126|
+66|[Pause]|Random|1|1000|Sleep|2000||||127|
+67|[CommentBlock]|Fechar janela dos heroes|0|1|CommentBlock|||||128|
+68|Continue, Continue, FoundX, FoundY, 1|717, 238, 768, 290, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\X.png|100|0|ImageSearch|UntilFound|Window|||131|
+69|If Image/Pixel Found||1|0|If_Statement|||||138|
+70|Left Move & Click|742, 267 Left, 1|1|10|Click|Random|10|||140|
+71|[End If]|EndIf|1|0|If_Statement|||||142|
+72|[Pause]|Random|1|1500|Sleep|3000||||143|
+73|[CommentBlock]|Voltar para o treasure hunt|0|1|CommentBlock|||||144|
+74|Continue, Continue, FoundX, FoundY, 0|576, 307, 810, 611, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Treasure Hunt.png|1|0|ImageSearch|UntilFound|Window|||147|
+75|If Image/Pixel Found||1|0|If_Statement|||||153|
+76|Left Move & Click|688, 454 Left, 1|1|10|Click|Random|30|||155|
+77|[Pause]|Random|1|1000|Sleep|3000||||157|
+78|[End If]|EndIf|1|0|If_Statement|||||158|
+79|[Else]|Else|1|0|If_Statement|||||159|
+80|[Goto]|AtualizarPag|1|0|Goto|||||162|
+81|[End If]|EndIf|1|0|If_Statement|||||163|
+82|[Goto]|Esperar|1|0|Goto|||||164|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|DroparRaros
+Context=None|
+Groups=Start:1
+1|Continue, Continue, FoundX, FoundY, 1|255, 8, 401, 45, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\cryptocarsPlay.png|100|0|ImageSearch|UntilFound|Window|||1|
+2|Continue, Continue, FoundX, FoundY, 0|211, 153, 284, 216, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Voltar verde.png|100|0|ImageSearch|UntilFound|Window|||8|
+3|If Image/Pixel Found||1|0|If_Statement|||||14|
+4|[Pause]|Random|1|2000|Sleep|3500||||16|
+5|Left Move & Click|249, 183 Left, 1|1|10|Click|Random|10|||17|
+6|[Pause]|Random|1|1500|Sleep|2000||||19|
+7|[CommentBlock]|Abrir os heroes|0|1|CommentBlock|||||20|
+8|Continue, Continue, FoundX, FoundY, 0|1065, 653, 1127, 704, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Heroes.png|100|0|ImageSearch|UntilFound|Window|||23|
+9|If Image/Pixel Found||1|0|If_Statement|||||29|
+10|Left Move & Click|1095, 681 Left, 1|1|10|Click|Random|10|||31|
+11|[Pause]|Random|1|1000|Sleep|2000||||33|
+12|[End If]|EndIf|1|0|If_Statement|||||34|
+13|[Pause]|Random|1|500|Sleep|1000||||35|
+14|[CommentBlock]|Descansar todos:|0|1|CommentBlock|||||36|
+15|Left Move & Click|660, 313 Left, 1|1|10|Click|Random|5|||39|
+16|[CommentBlock]|Dropar os raros|0|1|CommentBlock|||||41|
+17|[LoopStart]|LoopStart|2|0|Loop|||||44|
+18|[Assign Variable]|ye := 325|1|0|Variable|Expression||||46|
+19|[Assign Variable]|yd := 865|1|0|Variable|Expression||||47|
+20|[LoopStart]|LoopStart|5|0|Loop|||||48|
+21|[CommentBlock]|Dropar raros|0|1|CommentBlock|||||50|
+22|Continue, Continue, FoundX, FoundY|355, %ye%, 364, %yd%, 0x07FF24, 0, Fast RGB|50|0|PixelSearch||Window|||53|
+23|If Image/Pixel Found||1|0|If_Statement|||||58|
+24|[Pause]|Random|1|1000|Sleep|1500||||60|
+25|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||61|
+26|[End If]|EndIf|1|0|If_Statement|||||63|
+27|[CommentBlock]|Dropar >70% verdes|0|1|CommentBlock|||||64|
+28|Continue, Continue, FoundX, FoundY|530, %ye%, 540, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||67|
+29|If Image/Pixel Found||1|0|If_Statement|||||72|
+30|[Pause]|Random|1|1000|Sleep|1500||||74|
+31|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||75|
+32|[End If]|EndIf|1|0|If_Statement|||||77|
+33|[CommentBlock]|Se já for 2h da manhã, reabastecer o carro (Crypto Cars)|0|1|CommentBlock|||||78|
+34|[Add Variable]|ye += 108|1|0|Variable|Expression||||81|
+35|[Add Variable]|yd += 108|1|0|Variable|Expression||||82|
+36|[LoopEnd]|LoopEnd|1|0|Loop|||||83|
+37|[Pause]|Random|1|500|Sleep|1000||||84|
+38|Move|447, 396, 0|1|10|Click|Random|10|||85|
+39|[Pause]|Random|1|500|Sleep|1000||||87|
+40|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||88|
+41|[LoopEnd]|LoopEnd|1|0|Loop|||||93|
+42|[Pause]|Random|1|1000|Sleep|2000||||94|
+43|[CommentBlock]|Fechar janela dos heroes|0|1|CommentBlock|||||95|
+44|Continue, Continue, FoundX, FoundY, 1|717, 238, 768, 290, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\X.png|100|0|ImageSearch|UntilFound|Window|||98|
+45|If Image/Pixel Found||1|0|If_Statement|||||105|
+46|Left Move & Click|742, 267 Left, 1|1|10|Click|Random|10|||107|
+47|[End If]|EndIf|1|0|If_Statement|||||109|
+48|[Pause]|Random|1|1500|Sleep|3000||||110|
+49|[CommentBlock]|Voltar para o treasure hunt|0|1|CommentBlock|||||111|
+50|Continue, Continue, FoundX, FoundY, 0|576, 307, 810, 611, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Treasure Hunt.png|1|0|ImageSearch|UntilFound|Window|||114|
+51|If Image/Pixel Found||1|0|If_Statement|||||120|
+52|Left Move & Click|688, 454 Left, 1|1|10|Click|Random|30|||122|
+53|[Pause]|Random|1|1000|Sleep|3000||||124|
+54|[End If]|EndIf|1|0|If_Statement|||||125|
+55|[End If]|EndIf|1|0|If_Statement|||||126|
+56|[Goto]|Esperar|1|0|Goto|||||127|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro8
+Context=None|
+Groups=Start:1
+1|[Pause]|Random|1|100|Sleep|150||||1|
+2|[CommentBlock]|A cada 2 minutos, verifica a tela do jogo. São 5 loops|0|1|CommentBlock|||||2|
+3|[LoopStart]|LoopStart|5|0|Loop|||||5|
+4|[Pause]||1|200|Sleep|||Aguardar entre 20 e 50 min||7|
+5|[CommentBlock]|Verifica se o jogo deslogou (tempo sem uso)|0|1|CommentBlock|||||8|
+6|Continue, Continue, FoundX, FoundY, 0|420, 396, 948, 470, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\desconectadoTempo.png|100|0|ImageSearch||Window|||11|
+7|If Image/Pixel Found||1|0|If_Statement|||||16|
+8|[Gosub]|AtualizarPag|1|0|Gosub|||||18|
+9|[End If]|EndIf|1|0|If_Statement|||||19|
+10|[CommentBlock]|Verifica se desconectou (connection error)|0|1|CommentBlock|||||20|
+11|Continue, Continue, FoundX, FoundY, 0|430, 336, 970, 434, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\connectionError.png|50|0|ImageSearch||Window|||23|
+12|If Image/Pixel Found||1|0|If_Statement|||||28|
+13|[Goto]|AtualizarPag|1|0|Goto|||||30|
+14|[End If]|EndIf|1|0|If_Statement|||||31|
+15|[CommentBlock]|Verifica se há conexao instavel|0|1|CommentBlock|||||32|
+16|Continue, Continue, FoundX, FoundY, 0|412, 383, 956, 477, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\conexaoInstavel.png|50|0|ImageSearch||Window|||35|
+17|If Image/Pixel Found||1|0|If_Statement|||||40|
+18|[Pause]|Random|1|1500|Sleep|2000||||42|
+19|[Goto]|AtualizarPag|1|0|Goto|||||43|
+20|[End If]|EndIf|1|0|If_Statement|||||44|
+21|[CommentBlock]|Verifica se connect wallet está aparecendo, se sim, vai pra macro AtualizarPag|0|1|CommentBlock|||||45|
+22|Continue, Continue, FoundX, FoundY, 0|592, 587, 780, 677, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\CONNECT WALLET.png|100|0|ImageSearch||Window|||48|
+23|If Image/Pixel Found||1|0|If_Statement|||||53|
+24|[Pause]|Random|1|1000|Sleep|4000||||55|
+25|[Goto]|AtualizarPag|1|0|Goto|||||56|
+26|[End If]|EndIf|1|0|If_Statement|||||57|
+27|[CommentBlock]|Verifica se notificação do win zip aparece kk|0|1|CommentBlock|||||58|
+28|Continue, Continue, FoundX, FoundY, 0|824, 460, 1195, 544, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\lixo.png|50|0|ImageSearch||Window|||61|
+29|If Image/Pixel Found||1|0|If_Statement|||||66|
+30|Left Move & Click|1190, 462 Left, 1|1|10|Click|||||68|
+31|[End If]|EndIf|1|0|If_Statement|||||70|
+32|[Pause]|Random|1|1000|Sleep|2000||||71|
+33|[CommentBlock]|Se já for 2h da manhã, reabastecer carro (Crypto cars)|0|1|CommentBlock|||||72|
+34|Compare Variables|verificador != 1|1|0|If_Statement|||||75|
+35|OCR|1257, 729, 1303, 749, hora|1|0|ImageToText|eng|Screen|||77|
+36|Compare Variables|hora contains 02:|1|0|If_Statement|||||78|
+37|[Assign Variable]|verificador := 1|1|0|Variable|Expression||||80|
+38|[Goto]|ReabastecerCarro|1|0|Goto|||||81|
+39|[End If]|EndIf|1|0|If_Statement|||||82|
+40|[End If]|EndIf|1|0|If_Statement|||||83|
+41|[LoopEnd]|LoopEnd|1|0|Loop|||||84|
+42|[CommentBlock]|A cada 10-12 minutos, manda os verdes trabalharem|0|1|CommentBlock|||||85|
+43|[CommentBlock]|Na tela do jogo, procurar botão voltar verde|0|1|CommentBlock|||||88|
+44|Continue, Continue, FoundX, FoundY, 0|211, 153, 284, 216, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Voltar verde.png|200|0|ImageSearch|UntilFound|Window|||91|
+45|If Image/Pixel Found||1|0|If_Statement|||||97|
+46|[Pause]|Random|1|2000|Sleep|3500||||99|
+47|Left Move & Click|249, 183 Left, 1|1|10|Click|Random|10|||100|
+48|[Pause]|Random|1|1500|Sleep|2000||||102|
+49|[CommentBlock]|Abrir os heroes|0|1|CommentBlock|||||103|
+50|Continue, Continue, FoundX, FoundY, 0|1065, 653, 1127, 704, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Heroes.png|100|0|ImageSearch|UntilFound|Window|||106|
+51|If Image/Pixel Found||1|0|If_Statement|||||112|
+52|Left Move & Click|1095, 681 Left, 1|1|10|Click|Random|10|||114|
+53|[Pause]|Random|1|2000|Sleep|3000||||116|
+54|[End If]|EndIf|1|0|If_Statement|||||117|
+55|[CommentBlock]|Mandar todos descansar|0|1|CommentBlock|||||118|
+56|[Pause]|Random|1|2000|Sleep|3000||||121|
+57|Left Move & Click|662, 313 Left, 1|1|10|Click|Random|5|||122|
+58|[Pause]|Random|1|500|Sleep|1500||||124|
+59|[Assign Variable]|workers := 0|1|0|Variable|Expression||||125|
+60|[CommentBlock]|Dropar os 70%|0|1|CommentBlock|||||126|
+61|[LoopStart]|LoopStart|2|0|Loop|||||129|
+62|[Assign Variable]|ye := 325|1|0|Variable|Expression||||131|
+63|[Assign Variable]|yd := 865|1|0|Variable|Expression||||132|
+64|[LoopStart]|LoopStart|5|0|Loop|||||133|
+65|Continue, Continue, FoundX, FoundY|530, %ye%, 540, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||135|
+66|If Image/Pixel Found||1|0|If_Statement|||||140|
+67|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||142|
+68|[Add Variable]|workers += 1|1|0|Variable|Expression||||144|
+69|[Pause]|Random|1|1000|Sleep|1500||||145|
+70|[End If]|EndIf|1|0|If_Statement|||||146|
+71|[Add Variable]|ye += 108|1|0|Variable|Expression||||147|
+72|[Add Variable]|yd += 108|1|0|Variable|Expression||||148|
+73|[LoopEnd]|LoopEnd|1|0|Loop|||||149|
+74|[Pause]|Random|1|500|Sleep|1000||||150|
+75|Move|421, 500, 0|1|10|Click|Random|30|||151|
+76|[Pause]|Random|1|500|Sleep|1000||||153|
+77|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||154|
+78|[LoopEnd]|LoopEnd|1|0|Loop|||||159|
+79|[CommentBlock]|Se tiver menos de 3 trabalhando, dropar os 50%|0|1|CommentBlock|||||160|
+80|Compare Variables|workers < 3|1|0|If_Statement|||||163|
+81|Mouse Wheel Up|WheelUp, 1|30|10|Click|||||165|
+82|[LoopStart]|LoopStart|2|0|Loop|||||170|
+83|[Pause]|Random|1|1500|Sleep|2000||||172|
+84|[Assign Variable]|ye := 325|1|0|Variable|Expression||||173|
+85|[Assign Variable]|yd := 865|1|0|Variable|Expression||||174|
+86|[LoopStart]|LoopStart|5|0|Loop|||||175|
+87|Continue, Continue, FoundX, FoundY|510, %ye%, 520, %yd%, 0x789F39, 0, Fast RGB|50|0|PixelSearch||Window|||177|
+88|If Image/Pixel Found||1|0|If_Statement|||||182|
+89|Left Move & Click|600, %FoundY% Left, 1|1|10|Click|Random|5|||184|
+90|[Add Variable]|workers += 1|1|0|Variable|Expression||||186|
+91|[Pause]|Random|1|1000|Sleep|1500||||187|
+92|[End If]|EndIf|1|0|If_Statement|||||188|
+93|[Add Variable]|ye += 108|1|0|Variable|Expression||||189|
+94|[Add Variable]|yd += 108|1|0|Variable|Expression||||190|
+95|[LoopEnd]|LoopEnd|1|0|Loop|||||191|
+96|[Pause]|Random|1|500|Sleep|1000||||192|
+97|Move|447, 396, 0|1|10|Click|Random|10|||193|
+98|[Pause]|Random|1|500|Sleep|1000||||195|
+99|Mouse Wheel Down|WheelDown, 1|30|10|Click|||||196|
+100|[LoopEnd]|LoopEnd|1|0|Loop|||||201|
+101|[End If]|EndIf|1|0|If_Statement|||||202|
+102|[CommentBlock]|Se tiver menos de 3 trabalhando ainda, dropar dois quaisquer|0|1|CommentBlock|||||203|
+103|Compare Variables|workers < 3|1|0|If_Statement|||||206|
+104|Left Move & Click|601, 366 Left, 1|1|10|Click|Random|10|||208|
+105|[Pause]|Random|1|1000|Sleep|1500||||210|
+106|Left Move & Click|602, 441 Left, 1|1|10|Click|Random|10|||211|
+107|[End If]|EndIf|1|0|If_Statement|||||213|
+108|[Pause]|Random|1|1000|Sleep|2000||||214|
+109|[CommentBlock]|Fechar janela dos heroes|0|1|CommentBlock|||||215|
+110|Continue, Continue, FoundX, FoundY, 1|717, 238, 768, 290, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\X.png|100|0|ImageSearch|UntilFound|Window|||218|
+111|If Image/Pixel Found||1|0|If_Statement|||||225|
+112|Left Move & Click|742, 267 Left, 1|1|10|Click|Random|10|||227|
+113|[End If]|EndIf|1|0|If_Statement|||||229|
+114|[Pause]|Random|1|1500|Sleep|3000||||230|
+115|[CommentBlock]|Voltar para o treasure hunt|0|1|CommentBlock|||||231|
+116|Continue, Continue, FoundX, FoundY, 0|576, 307, 810, 611, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Treasure Hunt.png|1|0|ImageSearch|UntilFound|Window|||234|
+117|If Image/Pixel Found||1|0|If_Statement|||||240|
+118|Left Move & Click|688, 454 Left, 1|1|10|Click|Random|30|||242|
+119|[Pause]|Random|1|1000|Sleep|3000||||244|
+120|[End If]|EndIf|1|0|If_Statement|||||245|
+121|[Else]|Else|1|0|If_Statement|||||246|
+122|[Goto]|AtualizarPag|1|0|Goto|||||249|
+123|[End If]|EndIf|1|0|If_Statement|||||250|
+
