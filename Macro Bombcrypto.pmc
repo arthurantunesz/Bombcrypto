@@ -6,7 +6,7 @@ Groups=Verificação:1,Atualizar página:10,Abrir tela dos heroes:43,Seleção:5
 2|[CommentBlock]|Se já for 1h da manhã, reabastecer carro (Crypto cars)|0|1|CommentBlock|||||2|
 3|Compare Variables|verificador != 1|1|0|If_Statement|||||5|
 4|OCR|1257, 729, 1303, 749, hora|1|0|ImageToText|eng|Screen|||7|
-5|Compare Variables|hora contains 01:|1|0|If_Statement|||||8|
+5|Compare Variables|hora contains 23:|1|0|If_Statement|||||8|
 6|[Assign Variable]|verificador := 1|1|0|Variable|Expression||||10|
 7|[Goto]|ReabastecerCarro|1|0|Goto|||||11|
 8|[End If]|EndIf|1|0|If_Statement|||||12|
@@ -125,8 +125,8 @@ Groups=Verificação:1,Atualizar página:10,Abrir tela dos heroes:43,Seleção:5
 121|[Else]|Else|1|0|If_Statement|||||263|
 122|[Goto]|Principal|1|0|Goto|||||266|
 123|[End If]|EndIf|1|0|If_Statement|||||267|
-124|[CommentBlock]|Intervalo de 30-40 min|0|1|CommentBlock|||||268|
-125|[Pause]|Random|1|1800000|Sleep|2400000||||271|
+124|[CommentBlock]|Intervalo de 10-30 min|0|1|CommentBlock|||||268|
+125|[Pause]|Random|1|600000|Sleep|1800000||||271|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|ReabastecerCarro
 Context=None|
@@ -141,13 +141,13 @@ Groups=Start:1
 8|Left Click, Continue, FoundX, FoundY, 1|78, 44, 112, 76, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Refresh.png|50|0|ImageSearch||Window|||20|
 9|[Pause]|Random|1|5000|Sleep|8000||||28|
 10|[CommentBlock]|PLAY GAME|0|1|CommentBlock|||||29|
-11|Continue, Continue, FoundX, FoundY, 0|1057, 149, 1193, 190, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Screen_20220109151915.png|200|0|ImageSearch|UntilFound|Window|||32|
+11|Continue, Continue, FoundX, FoundY, 0|1057, 149, 1193, 190, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Screen_20220109151915.png|100|0|ImageSearch|UntilFound|Window|||32|
 12|If Image/Pixel Found||1|0|If_Statement|||||38|
 13|Left Move & Click|1121, 169 Left, 1|1|10|Click|Random|15|||40|
 14|[End If]|EndIf|1|0|If_Statement|||||42|
 15|[CommentBlock]|CARS|0|1|CommentBlock|||||43|
 16|[Pause]|Random|1|1500|Sleep|3000||||46|
-17|Continue, Continue, FoundX, FoundY, 0|369, 122, 430, 167, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\Screen_20220109152049.png|200|0|ImageSearch|UntilFound|Window|||47|
+17|Continue, Continue, FoundX, FoundY, 0|364, 119, 432, 167, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\CARS BTN.png|100|0|ImageSearch|UntilFound|Window|||47|
 18|If Image/Pixel Found||1|0|If_Statement|||||53|
 19|Left Move & Click|398, 142 Left, 1|1|10|Click|Random|3|||55|
 20|[End If]|EndIf|1|0|If_Statement|||||57|
@@ -162,7 +162,7 @@ Groups=Start:1
 29|[End If]|EndIf|1|0|If_Statement|||||83|
 30|[Pause]|Random|1|2000|Sleep|3000||||84|
 31|[CommentBlock]|CONFIRMAÇÃO DE REFUEL|0|1|CommentBlock|||||85|
-32|Continue, Continue, FoundX, FoundY, 0|470, 80, 913, 203, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\REFUEL CONFIRMATION.png|200|0|ImageSearch|UntilFound|Window|||88|
+32|Continue, Continue, FoundX, FoundY, 0|470, 80, 913, 203, C:\Users\Arthur\AppData\Roaming\MacroCreator\Screenshots\REFUEL CONFIRMATION.png|1000|0|ImageSearch|UntilFound|Window|||88|
 33|If Image/Pixel Found||1|0|If_Statement|||||94|
 34|Left Move & Click|787, 172 Left, 1|1|10|Click|||||96|
 35|[End If]|EndIf|1|0|If_Statement|||||98|
